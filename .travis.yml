@@ -15,8 +15,11 @@ before_script:
 script:
 - grunt less
 - "./grailsw refresh-dependencies"
-- "./grailsw test-app"
+- "./grailsw test-app -coverage -xml"
 - "./grailsw war"
+
+after_success:
+- "./grailsw coveralls"
 
 notifications:
   hipchat:
