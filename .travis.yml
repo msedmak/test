@@ -5,17 +5,15 @@ before_script:
 - npm install -g bower
 - npm install -g grunt-cli
 - npm install grunt --save-dev
-- npm install grunt-contrib-concat --save-dev
 - npm install grunt-contrib-less --save-dev
-- npm install grunt-contrib-uglify --save-dev
-- npm install grunt-contrib-jshint --save-dev
-- npm install grunt-contrib-sass --save-dev
+- npm install grunt-contrib-watch --save-dev
 - bower install
 
 script:
 - grunt less
 - "./grailsw refresh-dependencies"
 - "./grailsw test-app -coverage -xml"
+- "./grailsw war"
 
 after_success:
 - "./grailsw coveralls"
@@ -24,3 +22,11 @@ notifications:
   hipchat:
     rooms:
       secure: h66w6ngLr13e44O9AqvUqdTfBDEmssiRLZ2JUSRN/K+4vzCPVraG1Lp1Uk8IrdbBurLnYoFfS0AIHOUCuNRN4JYkISjluV9TQitZuYcm/0VxWAdCagdPmpQWceePuc8ct4Vo3N3LNDnV/1UV+FJL+kDIViO5Ko6eu52pO32C5vI=
+
+deploy:
+  provider: releases
+  api_key:
+    secure: SHAVBpt2/nTZ/iUHf6h/Y5KG3lh5728fACNVHQ9ZYlgXpsW3QsZoK74Kn1Mw5xdm4ZHMjnPGSBcasIem5FXzM4yBaDye6417V+nOzO992ilJ8gOGT4FGrApwoF83SCzEmwSYeGmssEHYWBPN3yIqgvn87jruTO/Z5hTMdwmIXQI=
+  file: test.war
+  on:
+    repo: msedmak/test
