@@ -50,6 +50,12 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         // runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
+
+        // Latest HTTP Client/Mime for Coveralls plugin
+        build 'org.apache.httpcomponents:httpcore:4.3.2'
+        build 'org.apache.httpcomponents:httpclient:4.3.2'
+        build 'org.apache.httpcomponents:httpmime:4.3.3'
+
         test "org.grails:grails-datastore-test-support:1.0-grails-2.4"
     }
 
@@ -66,6 +72,14 @@ grails.project.dependency.resolution = {
         runtime ":hibernate4:4.3.5.4" // or ":hibernate:3.6.10.16"
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
+
+        // Coveralls plugin
+        build(':coveralls:0.1.2', ':rest-client-builder:1.0.3') {
+            export = false
+        }
+        test(':code-coverage:1.2.7') {
+            export = false
+        }
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.7.4"
