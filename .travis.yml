@@ -8,15 +8,14 @@ before_script:
 - npm install grunt-contrib-concat --save-dev
 - npm install grunt-contrib-less --save-dev
 - npm install grunt-contrib-uglify --save-dev
-- npm install grunt -jshint--save-dev
-- npm install grunt-sass --save-dev
+- npm install grunt-contrib-jshint--save-dev
+- npm install grunt-contrib-sass --save-dev
 - bower install
 
 script:
 - grunt less
 - "./grailsw refresh-dependencies"
 - "./grailsw test-app -coverage -xml"
-- "./grailsw war"
 
 after_success:
 - "./grailsw coveralls"
