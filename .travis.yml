@@ -1,0 +1,23 @@
+language: groovy
+jdk: openjdk7
+
+before_script:
+- npm install -g bower
+- npm install -g grunt-cli
+- npm install grunt --save-dev
+- npm install grunt-contrib-concat --save-dev
+- npm install grunt-contrib-less --save-dev
+- npm install grunt-contrib-uglify --save-dev
+- npm install grunt -jshint--save-dev
+- npm install grunt-sass --save-dev
+- bower install
+
+script:
+- grunt less
+- "./grailsw refresh-dependencies"
+- "./grailsw war"
+
+notifications:
+  hipchat:
+    rooms:
+      secure: h66w6ngLr13e44O9AqvUqdTfBDEmssiRLZ2JUSRN/K+4vzCPVraG1Lp1Uk8IrdbBurLnYoFfS0AIHOUCuNRN4JYkISjluV9TQitZuYcm/0VxWAdCagdPmpQWceePuc8ct4Vo3N3LNDnV/1UV+FJL+kDIViO5Ko6eu52pO32C5vI=
