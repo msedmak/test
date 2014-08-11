@@ -28,5 +28,7 @@ deploy:
   api_key:
     secure: SHAVBpt2/nTZ/iUHf6h/Y5KG3lh5728fACNVHQ9ZYlgXpsW3QsZoK74Kn1Mw5xdm4ZHMjnPGSBcasIem5FXzM4yBaDye6417V+nOzO992ilJ8gOGT4FGrApwoF83SCzEmwSYeGmssEHYWBPN3yIqgvn87jruTO/Z5hTMdwmIXQI=
   file: test.war
+  skip_cleanup: true
   on:
+    tags: false
     repo: msedmak/test
